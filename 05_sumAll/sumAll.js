@@ -1,28 +1,26 @@
-const sumAll = function(fromNum, toNum) {
-    if(checkNum(fromNum, toNum)){
-    var numberContainer = [];
+const sumAll = function (...num) {
+    if(checkNum(...num)){
+    const maxNumber = Math.max(...num);
+    const filledArray = Array.from({length: maxNumber + 1}, (element, index) => index);
 
-    if(toNum < fromNum) {
-        for (var i = toNum; i <= fromNum; i++) {
-            numberContainer.push(i);
-        }
-    } else {
-        for (var i = fromNum; i <= toNum; i++) {
-            numberContainer.push(i);
-        }
-    }        
-
-    const sum = numberContainer.reduce((previousValue, nextValue) => previousValue + nextValue);
-    return sum;
+    return filledArray.reduce((previousValue, nextValue) => previousValue + nextValue);
     } else {
         return "ERROR";
     }
 };
 
-const checkNum = (num1, num2) => {
-    const validNumber = (Number.isFinite(num1) && Number.isFinite(num2)) && (num1 >= 0 && num2 >= 0);
-    return validNumber;
-}
+const checkNum = (...nums) => {
+    const validNumber = nums.map((number) => {
+    if(Number.isFinite(number) && (number >= 0)){
+        return true;
+        } else {
+        return false;
+        }
+    });
+    
+    return validNumber.every(bool => bool);
+};
+
 
 // Do not edit below this line
 module.exports = sumAll;
