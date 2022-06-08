@@ -1,11 +1,11 @@
 const palindromes = function (string) {
-    const CharArray = string.replace(/\W|_/g, '').toLowerCase().split('');
-    const reverseCharArray = CharArray.slice().reverse();
+    const charArray = string.replace(/\W|_/g, '').toLowerCase().split('');
+    const reverseCharArray = charArray.slice().reverse();
     
     const reverseString = reverseCharArray.join('');
-    const pureString = CharArray.join('');
+    const pureString = charArray.join('');
 
-    return pureString === reverseString ? true : false;
+    return pureString === reverseString;
 
     
 };
