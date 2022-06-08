@@ -20,8 +20,8 @@ const power = (num1, num2) => {
 };
 
 const factorial = (num) => {
-  var result = num;
-  if (num === 0 || num === 1) {
+  let result = num;
+  if (num <= 1) {
     return 1; 
   }
 
